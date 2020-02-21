@@ -13,7 +13,7 @@ let map =
 let makeUrls =
         λ(env : types.Env.Type)
       → λ(zone : types.Zone.Type)
-      → let instances = services.toServiceInstances env zone
+      → let instances = services.toServiceInstances env zone services.services
 
         let toUrl =
                 λ(instance : types.ServiceInstance)

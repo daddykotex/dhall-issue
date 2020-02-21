@@ -82,16 +82,20 @@ let services
       ]
 
 let serviceInstances
-    : types.Env.Type → types.Zone.Type → List types.ServiceInstance
+    :   types.Env.Type
+      → types.Zone.Type
+      → List types.Service.Type
+      → List types.ServiceInstance
     =   λ(env : types.Env.Type)
       → λ(zone : types.Zone.Type)
+      → λ(serviceList : List types.Service.Type)
       → let zoneMatch
             : types.Service.Type → Bool
             = λ(service : types.Service.Type) → service.availableIn zone
 
         let filtered
             : List types.Service.Type
-            = filter types.Service.Type zoneMatch services
+            = filter types.Service.Type zoneMatch serviceList
 
         let instances =
               map

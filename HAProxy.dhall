@@ -116,7 +116,7 @@ let buildHAProxyCfg =
                 types.Zone.Type
                 types.ServiceInstance
                 (   λ(zone : types.Zone.Type)
-                  → services.toServiceInstances env zone
+                  → services.toServiceInstances env zone services.services
                 )
                 zones
 
